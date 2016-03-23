@@ -1,6 +1,7 @@
 'use strict';
 
-
+var say = require("say");
+var colors = require("colors");
 var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
 var Message = require('azure-iot-device').Message;
 
@@ -79,7 +80,8 @@ let truck3SimulatedData = [
     {OutsideTemp: 23, ContainerTemp: -4, lat:13.04156,lng:77.61549000000001, tirepressure: [50, 50, 50, 50], fuel: 44.7, speed: 50},
     {OutsideTemp: 23, ContainerTemp: -4, lat:13.04137,lng:77.61605, tirepressure: [50, 50, 50, 50], fuel: 44.7, speed: 50},
     {OutsideTemp: 23, ContainerTemp: -3, lat:13.041150000000002,lng:77.61675000000001, tirepressure: [50, 50, 50, 50], fuel: 44.6, speed: 50},
-    {OutsideTemp: 23, ContainerTemp: -3, lat:13.04105,lng:77.61718, tirepressure: [50, 50, 50, 50], fuel: 44.6, speed: 50},
+    
+    {OutsideTemp: 23, ContainerTemp: -3, lat:13.04105,lng:77.61718, tirepressure: [50, 50, 50, 50], fuel: 44.6, speed: 50},
     {OutsideTemp: 23, ContainerTemp: -3, lat:13.041060000000002,lng:77.61732, tirepressure: [50, 50, 50, 50], fuel: 44.5, speed: 50},
     {OutsideTemp: 23, ContainerTemp: -3, lat:13.04109,lng:77.61759, tirepressure: [50, 50, 50, 50], fuel: 44.5, speed: 50},
     {OutsideTemp: 23, ContainerTemp: -1, lat:13.041110000000002,lng:77.61771, tirepressure: [50, 50, 50, 50], fuel: 44.5, speed: 50},
@@ -94,6 +96,8 @@ let truck3SimulatedData = [
 client.open(function(err) {
     client.on('message', function(msg) {
         console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
+        say.speak(msg.data.command);
+        console.log(colors.inverse(colors.green(msg.data.command)));
         client.complete(msg, printResultFor('completed'));
         // reject and abandon follow the same pattern.
         // /!\ reject and abandon are not available with MQTT

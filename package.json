@@ -15,10 +15,12 @@
   "dependencies": {
     "amqp10": "^3.0.0",
     "azure-iot-common": "^1.0.2",
+    "azure-iot-device": "^1.0.2",
+    "azure-iot-device-mqtt": "^1.0.2",
     "azure-iothub": "^1.0.2",
     "bluebird": "^3.3.3",
+    "colors": "^1.1.2",
     "mongoose": "^4.4.8",
-	"azure-iot-device": "^1.0.2",
-    "azure-iot-device-mqtt": "^1.0.2"
+    "say": "^0.9.0"
   }
 }
