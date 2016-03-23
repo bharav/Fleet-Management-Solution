@@ -1,0 +1,24 @@
+{
+  "name": "readdevicetocloudmessages",
+  "version": "1.0.0",
+  "description": "Node.js console app reads device-to-cloud messages from IoT Hub.",
+  "main": "ReadDeviceToCloudMessages.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Azure",
+    "IOT"
+  ],
+  "author": "EMC",
+  "license": "ISC",
+  "dependencies": {
+    "amqp10": "^3.0.0",
+    "azure-iot-common": "^1.0.2",
+    "azure-iothub": "^1.0.2",
+    "bluebird": "^3.3.3",
+    "mongoose": "^4.4.8",
+	"azure-iot-device": "^1.0.2",
+    "azure-iot-device-mqtt": "^1.0.2"
+  }
+}
