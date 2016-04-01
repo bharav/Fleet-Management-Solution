@@ -186,9 +186,9 @@ var messageHandler = function (partitionId, message) {
   if(message.body.ContainerTemp > -5){
       console.log("ContainerTemp is low!");
     var data = JSON.stringify({ command : 'Decreasing the temperature to -5 degrees' });
-    var message = new Message(data);
-    console.log('Sending message: ' + message.getData());
-    CtDclient.send(targetDevice, message, printResultFor('send'));
+    var ctrlMessage = new Message(data);
+    console.log('Sending message: ' + ctrlMessage.getData());
+    CtDclient.send(targetDevice, ctrlMessage, printResultFor('send'));
   }
   
   var truckdata = new truck(message.body);
